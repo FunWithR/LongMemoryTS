@@ -12,9 +12,9 @@
 #'Concentrated local Whittle likelihood. Only for internal use. cf. Robinson (1995), p. 1633.
 #'@keywords internal
 
-R.lw<-function(d,peri,m,T){
+R.lw<-function(d,peri,m,T,l=1){
   lambda<-2*pi/T
-  K<-log(1/m*(sum(peri[1:m]*(lambda*(1:m))^(2*d))))-2*d/m*sum(log(lambda*(1:m)))
+  K<-log(1/(m-l-1)*(sum(peri[l:m]*(lambda*(l:m))^(2*d))))-2*d/(m-l-1)*sum(log(lambda*(l:m)))
   K
 }
 
@@ -79,7 +79,7 @@ PHI_lw<-function(ht,T,p){
 #' Velasco, C. (1999): Gaussian Semiparametric Estimation for Non-Stationary Time Series.
 #' Journal of Time Series Analysis, Vol. 20, No. 1, pp. 87-126. 
 #' Hurvich, C. M., and Chen, W. W. (2000): An Efficient Taper for Potentially 
-#' Overdifferenced Long‐memory Time Series. Journal of Time Series Analysis, Vol. 21, No. 2, pp. 155-180.
+#' Overdifferenced Long-Memory Time Series. Journal of Time Series Analysis, Vol. 21, No. 2, pp. 155-180.
 #' @examples
 #' library(fracdiff)
 #' T<-1000
@@ -88,7 +88,7 @@ PHI_lw<-function(ht,T,p){
 #' local.W(series,m=floor(1+T^0.65))
 #' @export
 
-local.W<-function(data,m,int=c(-0.5,2.5), taper=c("none","Velasco","HC"), diff_param=1){
+local.W<-function(data,m,int=c(-0.5,2.5), taper=c("none","Velasco","HC"), diff_param=1, l=1){
   taper<-taper[1]
   if((taper%in%c("none","Velasco","HC"))==FALSE)stop('taper must be either "none", "Velasco", or "HC".')
   T<-length(data)
@@ -111,18 +111,11 @@ local.W<-function(data,m,int=c(-0.5,2.5), taper=c("none","Velasco","HC"), diff_p
   }
   if(taper=="none"){
     peri<-per(data)[-1]
-    d.hat<-optimize(f=R.lw, interval=int, peri=peri,  m=m, T=T)$minimum
+    d.hat<-optimize(f=R.lw, interval=int, peri=peri,  m=m, T=T, l=1)$minimum
     se<-1/(2*sqrt(m))
   }
   return(list("d"=d.hat, "s.e."=se))
 }
-
-
-
-
-
-
-
 
 
 # library(fracdiff)

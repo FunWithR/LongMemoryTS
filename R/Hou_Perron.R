@@ -27,6 +27,7 @@ J.M<-function(vec,peri,m,T){
 #' @title Modified local Whittle estimator of fractional difference parameter d.
 #' @description \code{Hou.Perron} Modified semiparametric local Whittle estimator of Hou and Perron (2014).
 #' Estimates memory parameter robust to low frequency contaminations.
+#' @author Christian Hendrik Leschinski
 #' @details
 #' add details here
 #' @param data data vector of length T.

@@ -28,20 +28,39 @@
 #' ts.plot(series, col=1:2)
 #' @export
 FI.sim<-function(T,q,rho,d,B=diag(q),var=1,burnin=250){
-  corr.mat<-matrix(rho,q,q)
+  
+  #corr.mat<-matrix(rho,q,q)
+  #diag(corr.mat)<-1
+  #sigma<-var*corr.mat
+  #noise<-rmvnorm((T+burnin),mean=rep(0,q),sigma=sigma)
+  #series<-matrix(NA,(T+burnin),q)
+  #for(a in 1:q){
+  #  series[,a]<-cumsum(diffseries(noise[,a],(1-d[a])))
+  #}
+  #series<-series[(burnin+1):(burnin+T),]
+  #if(sum(B==diag(q))!=length(as.vector(B))){
+  #  invB<-solve(B)
+  #  series<-t(apply(t(series),2,function(x,invB){invB%*%x}, invB=invB))
+  #}
+  #return(series)
+  
+  dim_series<-q
+  if(length(d)!=dim_series)stop("d has to be a vector of length q.")
+  corr.mat<-matrix(rho,dim_series,dim_series)
   diag(corr.mat)<-1
   sigma<-var*corr.mat
-  noise<-rmvnorm((T+burnin),mean=rep(0,q),sigma=sigma)
-  series<-matrix(NA,(T+burnin),q)
-  for(a in 1:q){
-    series[,a]<-cumsum(diffseries(noise[,a],(1-d[a])))
+  noise<-rmvnorm((T+burnin),mean=rep(0,dim_series),sigma=sigma)
+  series<-matrix(NA,(T+burnin),dim_series)
+  for(a in 1:dim_series){
+    series[,a]<-fdiff(noise[,a],-d[a])
   }
   series<-series[(burnin+1):(burnin+T),]
-  if(sum(B==diag(q))!=length(as.vector(B))){
+  if(sum(B==diag(dim_series))!=length(as.vector(B))){
     invB<-solve(B)
     series<-t(apply(t(series),2,function(x,invB){invB%*%x}, invB=invB))
   }
   return(series)
+  
 }
 
 

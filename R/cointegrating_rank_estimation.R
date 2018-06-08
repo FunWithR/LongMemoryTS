@@ -91,7 +91,7 @@ stats<-0
 for(i in 1:nrow(combinations)){stats[i]<-Tab(d.hat=d.hat,G.est=G.est,m1=m1,a=combinations[i,1],b=combinations[i,2],h_n)}
 T.rho<-max(abs(stats))
 level<-2*(alpha)/(s_bar*n_l*(n_l-1))
-crit<-qnorm((1-level),mean=0,sd=1)
+crit<-qnorm((1-level/2),mean=0,sd=1)
 p.val<-1-pnorm(T.rho)
 out<-list("T.stat"=T.rho, "crit"=crit, "p.val"=p.val, "level"=level)
 return(out)

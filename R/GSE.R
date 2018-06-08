@@ -66,14 +66,19 @@ G.hat<-function(X,d,m){
 #' GSE(data, m=floor(1+T^0.7))
 #' @export
 
-GSE<-function(X,m=m){
+GSE<-function(X, m=m, l=1){
   X<-as.matrix(X)
   if(which.max(dim(X))==1){X<-t(X)} # convert matrix in q x n - dimensional matrix if it is n x q
-  n<-ncol(X)                        # number of observations
+  T<-ncol(X)                        # number of observations
   q<-nrow(X)                        # number of dimensions
   start.vec<-rep(0,q)
-  for(a in 1:q){start.vec[a]<-local.W(X[a,],m=m)$d}
-  if(q==1){out<-optimize(f=R_d_multi_GSE, interval=c(-0.5,1), X=X, m=m, maximum=FALSE)}else{out<-optim(par=start.vec, fn=R_d_multi_GSE, X=X, m=m, method="Nelder-Mead", control=list(fnscale=1,trace=0, REPORT=1, maxit=10000))}
+  for(a in 1:q){start.vec[a]<-local.W(X[a,],m=m, l=l)$d}
+  PERI<-Peri(X)
+  if(q==1){
+    out<-optimize(f=R_d_multi_GSE, interval=c(-0.5,1), PERI=PERI, m=m, l=l, T=T, q=q, maximum=FALSE)
+  }else{
+    out<-optim(par=start.vec, fn=R_d_multi_GSE, PERI=PERI, m=m, l=l, T=T, q=q, method="Nelder-Mead", control=list(fnscale=1,trace=0, REPORT=1, maxit=10000))
+    }
   erg<-out[[1]]
   names(erg)<-paste("d",1:q,sep="")
   erg
@@ -97,18 +102,42 @@ GSE<-function(X,m=m){
 #' GSE_coint(X=series,m=m, elements=c(1,2))
 #' @export
 
-GSE_coint<-function(X,m=m, elements){
+GSE_coint<-function(X, m=m, elements, l=1){
   X<-as.matrix(X)
   if(which.max(dim(X))==1){X<-t(X)} # convert matrix in q x n - dimensional matrix if it is n x q
-  n<-ncol(X)                        # number of observations
+  T<-ncol(X)                        # number of observations
   q<-nrow(X)                        # number of dimensions
-  start.vec<-rep(0.01,(q+length(elements)-1))
-  for(a in 1:q){start.vec[a]<-local.W(X[a,],m=m)$d}
-  if(q==1){out<-optimize(f=R_d_multi_GSE_coint, interval=c(-0.5,1), X=X, m=m, maximum=FALSE)}else{out<-optim(par=start.vec, fn=R_d_multi_GSE_coint, X=X, m=m, elements=elements, method="Nelder-Mead", control=list(fnscale=1,trace=0, REPORT=1, maxit=10000))}
+  start.vec<-rep(1,(q+length(elements)-1))
+  for(a in 1:q){start.vec[length(elements)-1+a]<-local.W(X[a,],m=m, l=l)$d}
+  PERI<-Peri(X)
+  if(q==1){
+    out<-optimize(f=R_d_multi_GSE_coint, interval=c(-0.5,1), PERI=PERI, m=m, T=T, q=q, maximum=FALSE)
+  }else{
+  out<-optim(par=start.vec, fn=R_d_multi_GSE_coint, PERI=PERI, m=m, l=l, T=T, q=q, elements=elements,
+             method="L-BFGS-B", lower=c(-10,-0.49,-0.49), upper=c(10,1.5,1.5), control=list(fnscale=1,trace=0, REPORT=1, maxit=10000))
+  }
   erg<-out[[1]]
   names(erg)<-c(paste("beta",1:(length(elements)-1), sep=""),paste("d",1:q,sep=""))
   erg
 }
+
+
+#GSE_coint<-function(X,m=m, elements){
+#  X<-as.matrix(X)
+#  if(which.max(dim(X))==1){X<-t(X)} # convert matrix in q x n - dimensional matrix if it is n x q
+#  n<-ncol(X)                        # number of observations
+#  q<-nrow(X)                        # number of dimensions
+#  start.vec<-rep(0.01,(q+length(elements)-1))
+#  for(a in 1:q){start.vec[a]<-local.W(X[a,],m=m)$d}
+#  if(q==1)
+#    out<-optimize(f=R_d_multi_GSE_coint, interval=c(-0.5,1), X=X, m=m, maximum=FALSE)
+#  }else{
+#    out<-optim(par=start.vec, fn=R_d_multi_GSE_coint, X=X, m=m, elements=elements,
+#               method="Nelder-Mead", control=list(fnscale=1,trace=0, REPORT=1, maxit=10000))}
+#  erg<-out[[1]]
+#  names(erg)<-c(paste("beta",1:(length(elements)-1), sep=""),paste("d",1:q,sep=""))
+#  erg
+#}
 
 
 #T<-1000
