@@ -2,9 +2,9 @@ Package: LMlib
 Type: Package
 Title: Long Memory Library
 Version: 1.0
-Date: 2017-09-29
+Date: 2019-01-18
 Author: Christian Hendrik Leschinski
-Maintainer: Christian Hendrik Leschinski <leschinski@statistik.uni-hannover.de>
+Maintainer: Christian Hendrik Leschinski <christian_leschinski@gmx.de>
 Description: The Long Memory Library is a collection of functions for estimation, simulation and testing of long memory processes and spurious long memory processes.
 License: GPL-2
 LinkingTo: Rcpp, RcppArmadillo
@@ -17,4 +17,4 @@ Depends:
     partitions,
     fracdiff,
     mvtnorm
-RoxygenNote: 5.0.1
+RoxygenNote: 6.1.1

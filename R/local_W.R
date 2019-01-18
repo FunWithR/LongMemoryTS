@@ -11,7 +11,6 @@
 
 #'Concentrated local Whittle likelihood. Only for internal use. cf. Robinson (1995), p. 1633.
 #'@keywords internal
-
 R.lw<-function(d,peri,m,T,l=1){
   lambda<-2*pi/T
   K<-log(1/(m-l-1)*(sum(peri[l:m]*(lambda*(l:m))^(2*d))))-2*d/(m-l-1)*sum(log(lambda*(l:m)))
@@ -65,19 +64,23 @@ PHI_lw<-function(ht,T,p){
 #' @title Local Whittle estimator of fractional difference parameter d.
 #' @description \code{local.W} Semiparametric local Whittle estimator for memory parameter d following Robinson (1995).
 #'  Returns estimate and asymptotic standard error.
-#' @details add details here.
+# #' @details add details here.
 #' @param data vector of length T.
 #' @param m bandwith parameter specifying the number of Fourier frequencies.
 #' used for the estimation usually \code{floor(1+T^delta)}, where 0<delta<1.
 #' @param int admissible range for d. Restricts the interval 
 #'        of the numerical optimization.
-#' @param taper string that determines whether the standard local Whittle estimator of Robinson (1995), 
+#' @param taper string that is either \code{"none"}, \code{"Velasco"}, or \code{"HC"} and determines whether the standard local Whittle estimator of Robinson (1995), 
 #' the tapered version of Velasco (1999), or the differenced and tapered estimator of Hurvich and Chen (2000) is used.
+#' @param l integer that determines how many frequencies (l-1) are trimmed out if taper="none" is selected. Default is l=1.
+#' @param diff_param integer specifying the order of differentiation for the estimator of Hurvich and Chen (2000). Default is \code{diff_param=1}.
 #' @import longmemo
 #' @references Robinson, P. M. (1995): Gaussian Semiparametric Estimation of Long Range Dependence. 
 #' The Annals of Statistics, Vol. 23, No. 5, pp. 1630 - 1661.
+#' 
 #' Velasco, C. (1999): Gaussian Semiparametric Estimation for Non-Stationary Time Series.
 #' Journal of Time Series Analysis, Vol. 20, No. 1, pp. 87-126. 
+#' 
 #' Hurvich, C. M., and Chen, W. W. (2000): An Efficient Taper for Potentially 
 #' Overdifferenced Long-Memory Time Series. Journal of Time Series Analysis, Vol. 21, No. 2, pp. 155-180.
 #' @examples
@@ -111,7 +114,7 @@ local.W<-function(data,m,int=c(-0.5,2.5), taper=c("none","Velasco","HC"), diff_p
   }
   if(taper=="none"){
     peri<-per(data)[-1]
-    d.hat<-optimize(f=R.lw, interval=int, peri=peri,  m=m, T=T, l=1)$minimum
+    d.hat<-optimize(f=R.lw, interval=int, peri=peri,  m=m, T=T, l=l)$minimum
     se<-1/(2*sqrt(m))
   }
   return(list("d"=d.hat, "s.e."=se))

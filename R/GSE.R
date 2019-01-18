@@ -49,11 +49,11 @@ G.hat<-function(X,d,m){
 ### Wrapper Function for Minimization of R(d)
 
 #' @title Multivariate local Whittle estimation of long memory parameters.
-#' @description \code{GSE} Estimates the matrix G based on an estimate of the vector of memory parameters.
-#' @details add details here.
+#' @description \code{GSE} Estimates the memory parameter of a vector valued long memory process.
+# #' @details add details here.
 #' @param X data matrix with T observations of q-dimensional process.
-#' @param m bandwith parameter specifying the number of Fourier frequencies.
-#' used for the estimation usually \code{floor(1+T^delta)}, where 0<delta<1.
+#' @param m bandwith parameter specifying the number of Fourier frequencies used for the estimation. Usually \code{floor(1+T^delta)}, where 0<delta<1.
+#' @param l integer that specifies the number of Fourier frequencies (l-1) that are trimmed.
 #' @references Shimotsu, K. (2007): Gaussian semiparametric estimation of multivariate
 #' fractionally integrated processes. Journal of Econometrics, Vol. 137, No. 2, pp. 277 - 310.
 #' @import stats
@@ -87,8 +87,9 @@ GSE<-function(X, m=m, l=1){
 
 
 #' @title Multivariate local Whittle estimation of long memory parameters and cointegrating vector.
-#' @description \code{GSE_coint} Estimates thesomething...
-#' @details add details here.
+#' @description \code{GSE_coint} is an extended version of \code{GSE} that allows the joint 
+#' estimation of the memory parameters and the cointegration vector for a vector valued process.
+# #' @details add details here.
 #' @param elements vector specifying which elements of the observation vector are cointegrated.
 #' @inheritParams GSE
 #' @examples 

@@ -2,7 +2,7 @@
 #' @title MLWS test for multivariate spurious long memory.
 #' @description Multivariate local Whittle Score type test for the null hypothesis of true long
 #'              memory against the alternative of spurious long memory suggested by Sibbertsen, 
-#'              Leschinski and Holzhausen (2015).
+#'              Leschinski and Holzhausen (2018).
 #' @details
 #' add details here
 #' @param X data matrix
@@ -45,8 +45,8 @@
 #' ts.plot(series, col=1:2)
 #' MLWS(series, m=m)
 #' MLWS(series, m=m, coint.elements=c(1,2))
-#' @references Sibbertsen, P., Leschinski, C. H., Holzhausen, M., (2015): A Multivariate Test 
-#'              Against Spurious Long Memory. Hannover Economic Paper.
+#' @references Sibbertsen, P., Leschinski, C. H., Holzhausen, M., (2018): A Multivariate Test 
+#'              Against Spurious Long Memory. Journal of Econometrics, Vol. 203, No. 1, pp. 33 - 49.
 #' @export
 
 MLWS<-function(X,m,epsilon=c(0.02,0.05), coint.elements=NULL, B=NULL, prewhite=c("none","uni","multi"), eta=rep(1/sqrt(min(dim(X))),min(dim(X))), rep=FALSE, approx=100, split=1, T_limdist=1000, M_limdist=5000){

@@ -5,8 +5,7 @@
 
 
 #' @title Simulation of Autoregressive Random Level Shift processes.
-#' @description Simulation of a AR-RLS process as discussed in 
-#'              Leschinski and Kruse (2014) and Xu and Perron (2014).
+#' @description Simulation of a AR-RLS process as discussed in and Xu and Perron (2014).
 #' @details
 #' add details here
 #' @param T length of the desired series.
@@ -14,16 +13,13 @@
 #'        For \code{phi=1} the process is a "stationary RLS" and for \code{phi=0} the process
 #'        is a non stationary RLS. 
 #' @param sig.shifts standard deviation of the shifts.
-#' @param prob shift probability. Usually p*/T, where p* is the expected number of shifts in the sample.
+#' @param prob shift probability. For rare shifts p*/T, where p* is the expected number of shifts in the sample.
 #' @param sig.noise standard deviation of the noise component. Default is \code{sig.noise=0}.
 #' @param const mean of the process. Default is \code{const=0}.
 #' @param trend trend of the process. Default is \code{trend=0}.
 #' @param burnin length of the burnin period used. Default is \code{burnin=100}
 #' @examples ts.plot(ARRLS.sim(T=500,phi=0.5, sig.shift=1, prob=0.05), ylab=expression(X[t]))
-#' @references Leschinski, C. H. and Kruse, R. (2014): Testing for unit roots in random level 
-#'              shift processes. Mimeo.
-#'              
-#'              Xu, J. and Perron, P. (2014): Forecasting return volatility: Level shifts with 
+#' @references  Xu, J. and Perron, P. (2014): Forecasting return volatility: Level shifts with 
 #'              varying jump probability and mean reversion. International Journal of Forecasting,
 #'              30, pp. 449-463.
 #' @export

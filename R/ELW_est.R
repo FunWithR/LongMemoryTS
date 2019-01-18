@@ -5,22 +5,15 @@
 ##########################################################################################
 
 
-#rm(list=ls())
-#library(longmemo)
-#library(fracdiff)
-
-
-#####################################################################################
-#### Normal Local Whittle / Gaussian Semiparametric Estimator
 
 #---------------------------       profiled/ concentrated likelihood function       ------------------------------------#
 
-
 #' Concentrated local Whittle likelihood. Only for internal use. cf. Shimotsu and Phillips (2005), p. ???.
 #'@keywords internal
-
 wd.elw<-function(d){1/2*(1+cos(4*pi*d))}
 
+#' concentrated likelihood function for ELW estimator
+#'@keywords internal
 R.elw<-function(d,data,m){
   T<-length(data)
   lambda<-2*pi/T
@@ -29,6 +22,8 @@ R.elw<-function(d,data,m){
   K
 }
 
+#' concentrated likelihood function for ELW estimator - weighted version
+#'@keywords internal
 R.elw.weighted<-function(d,data,m){
   data<-(data-wd.elw(d)*mean(data)-(1-wd.elw(d))*data[1])[-1]
   T<-length(data)
@@ -46,12 +41,11 @@ R.elw.weighted<-function(d,data,m){
 #' Shimotsu and Phillips (2005) that is consistent and asymptotically normal as long as 
 #' the optimization range is less than 9/2, so that it is possible to estimate the memory
 #' of stationary as well as non-stationary processes.
-#' @details
-#' add details here
+# #' @details add details here
 #' @param data data vector of length T.
 #' @param m bandwith parameter specifying the number of Fourier frequencies.
 #' used for the estimation usually \code{floor(1+T^delta)}, where 0<delta<1.
-#' @param mean.est specifies the form of mean correction. See details.
+#' @param mean.est specifies the form of mean correction. One of \code{c("mean","init","weighted","none")}.
 #' @references Shimotsu, K. and Phillips, P. C. B. (2005): Exact Local Whittle
 #' Estimation Of Fractional Integration. The Annals of Statistics, Vol. 33, No. 4, pp. 1890 - 1933
 #' @examples
@@ -84,13 +78,13 @@ ELW<-function(data,m, mean.est=c("mean","init","weighted","none")){
 #' unknown mean and time trend.
 #' @description \code{ELW2S} implements the two-step ELW estimator of 
 #' Shimotsu (2010) that is consistent and asymptotically normal in the range from -1/2 to 2.
-#' @details
-#' add details here
+# #' @details add details here
 #' @param data data vector of length T.
 #' @param m bandwith parameter specifying the number of Fourier frequencies.
 #' used for the estimation usually \code{floor(1+T^delta)}, where 0<delta<1.
 #' @param trend_order specifies the form of detrending: 0 for a constant, only, 
-#' 1 for a linear trend, and so on. See details.
+#' 1 for a linear trend, and so on. 
+#' @param taper string from \code{c("Velasco","HC")} specifying the tapered form of the local Whittle estimator used in the first step.
 #' @references Shimotsu, K. (2010): Exact Local Whittle
 #' Estimation Of Fractional Integration with Unknown Mean and Time Trend. Econometric Theory,
 #'  Vol. 26, pp. 501 - 540.

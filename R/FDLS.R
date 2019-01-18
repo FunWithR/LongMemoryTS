@@ -9,11 +9,28 @@
 #library(longmemo)
 #library(QZ)
 
-
 ## equation numbers refer to Christensen and Nielsen (2006, JoE)
 
-#' cross periodogram of vectors X and Y
-#'@keywords internal
+#' @title Cross periodogram of vector valued time series X and Y
+#' @description Calculates the cross periodogram of the vector valued time series X and Y.
+# #' @details add details here. 
+#' @param X data matrix.
+#' @param Y data matrix.
+#' @examples
+#' T<-500
+#' d<-c(0.4, 0.2, 0.3)
+#' data<-FI.sim(T, q=3, rho=0, d=d)
+#' X<-data[,1:2]
+#' Y<-data[,3]
+#' cper<-cross.Peri(X, Y)
+#' pmax<-max(Re(cper),Im(cper))
+#' pmin<-min(Re(cper),Im(cper))
+#' plot(Re(cper[1,,]), type="h", ylim=c(pmin,pmax))
+#' lines(Im(cper[1,,]), col=2)
+#' plot(Re(cper[2,,]), type="h", ylim=c(pmin,pmax))
+#' lines(Im(cper[2,,]), col=2)
+#' @export
+#' 
 cross.Peri<-function(X,Y){
   X<-as.matrix(X)
   Y<-as.matrix(Y)
@@ -36,8 +53,24 @@ cross.Peri<-function(X,Y){
 }
 
 
-#'Empirical cummulative spectral distribution function
-#'@keywords internal
+
+#' @title Empirical cummulative spectral distribution function
+#' @description Calculates the empirical cummulative spectral distribution function from the 
+#' cross periodogram of the vector valued time series X and Y.
+# #' @details add details here. 
+#' @param X data matrix.
+#' @param Y data matrix.
+#' @param k integer that determines the order number of the first Fourier frequency used.
+#' @param l integer that determines the order number of the last Fourier frequency used.
+#' @examples
+#' T<-500
+#' d<-c(0.4, 0.2, 0.3)
+#' 
+#' data<-FI.sim(T, q=3, rho=0, d=d)
+#' X<-data[,1:2]
+#' Y<-data[,3]
+#' F.hat(X, Y, 1, floor(T/2))
+#' @export
 F.hat<-function(X,Y,k,l){
   # (6)
 X<-as.matrix(X)
