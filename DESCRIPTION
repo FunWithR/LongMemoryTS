@@ -1,16 +1,15 @@
-Package: LMlib
+Package: LongMemoryTS
 Type: Package
-Title: Long Memory Library
+Title: Long Memory Time Series
 Version: 1.0
 Date: 2019-01-18
 Author: Christian Hendrik Leschinski
 Maintainer: Christian Hendrik Leschinski <christian_leschinski@gmx.de>
-Description: The Long Memory Library is a collection of functions for estimation, simulation and testing of long memory processes and spurious long memory processes.
+Description: Long Memory Time Series is a collection of functions for estimation, simulation and testing of long memory processes and spurious long memory processes.
 License: GPL-2
 LinkingTo: Rcpp, RcppArmadillo
 Imports:
-    Rcpp,
-    RcppArmadillo
+    Rcpp
 Depends:
     stats,
     longmemo,
