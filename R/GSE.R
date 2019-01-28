@@ -15,7 +15,7 @@
 #' @description \code{G.hat} Estimates the matrix G of a multivariate long memory process 
 #'              based on an estimate of the vector of memory parameters. The assumed spectral 
 #'              density is that of Shimotsu (2007).
-#' @details add details here.
+# #' @details add details here.
 #' @param X data matrix with T observations of q-dimensional process.
 #' @param d q-dimensional data vector.
 #' @param m bandwith parameter specifying the number of Fourier frequencies.

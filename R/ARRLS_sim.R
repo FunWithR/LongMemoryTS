@@ -17,7 +17,8 @@
 #' @param sig.noise standard deviation of the noise component. Default is \code{sig.noise=0}.
 #' @param const mean of the process. Default is \code{const=0}.
 #' @param trend trend of the process. Default is \code{trend=0}.
-#' @param burnin length of the burnin period used. Default is \code{burnin=100}
+#' @param burnin length of the burnin period used. Default is \code{burnin=100}.
+#' @author Christian Leschinski
 #' @examples ts.plot(ARRLS.sim(T=500,phi=0.5, sig.shift=1, prob=0.05), ylab=expression(X[t]))
 #' @references  Xu, J. and Perron, P. (2014): Forecasting return volatility: Level shifts with 
 #'              varying jump probability and mean reversion. International Journal of Forecasting,

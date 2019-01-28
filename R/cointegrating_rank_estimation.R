@@ -34,7 +34,7 @@ return(Tab)
 #' @title Test for equality of all elements in an estimated d-vector based on pairwise comparisons.
 #' @description \code{T.rho} Uses pairwise test as suggested by Robinson and Yajima (2002) to test
 #' for the equality of the memory parameters in a vector series.
-#' @details add details here.
+# #' @details add details here.
 #' @param data data matrix of dimension (qxT).
 #' @param d.hat the estimated d.vector
 #' @param m bandwith parameter specifying the number of Fourier frequencies.
@@ -47,6 +47,7 @@ return(Tab)
 #'        which is recommended by Nielsen and Shimotsu (2007) in their simulation study. 
 #'        Robinson and Yajima (2002) argue non-rejection with h_n=0 would imply 
 #'        non-rejection with any h_n>0.  
+#' @author Christian Leschinski
 #' @references Robinson, P. M. and Yajima, Y. (2002): Determination of cointegrating rank
 #'            in fractional systems. Journal of Econometrics, Vol. 106, No.2, pp. 217-241. 
 #'            

@@ -16,19 +16,19 @@
 #' }}
 #' @export
 Peri <- function(X) {
-    .Call('_LMlib_Peri', PACKAGE = 'LMlib', X)
+    .Call('_LongMemoryTS_Peri', PACKAGE = 'LongMemoryTS', X)
 }
 
 #' Calculate matrix Lambda_j(d) as part of the spectral density
 #' @keywords internal
 Lambda_j <- function(q, n, T, d_vec) {
-    .Call('_LMlib_Lambda_j', PACKAGE = 'LMlib', q, n, T, d_vec)
+    .Call('_LongMemoryTS_Lambda_j', PACKAGE = 'LongMemoryTS', q, n, T, d_vec)
 }
 
 #' Armadillo has trouble inverting complex matrices. This is circumvented by this function.
 #' @keywords internal
 invert <- function(X) {
-    .Call('_LMlib_invert', PACKAGE = 'LMlib', X)
+    .Call('_LongMemoryTS_invert', PACKAGE = 'LongMemoryTS', X)
 }
 
 #' @title Estimation of G matrix for multivariate long memory processes.
@@ -46,19 +46,19 @@ invert <- function(X) {
 #' fractionally integrated processes. Journal of Econometrics, Vol. 137, No. 2, pp. 277 - 310.
 #' @keywords internal
 G_hat_cpp <- function(peri, Lambda_cube, d_vec, m, l, q) {
-    .Call('_LMlib_G_hat_cpp', PACKAGE = 'LMlib', peri, Lambda_cube, d_vec, m, l, q)
+    .Call('_LongMemoryTS_G_hat_cpp', PACKAGE = 'LongMemoryTS', peri, Lambda_cube, d_vec, m, l, q)
 }
 
 #' Profiled Likelihood for GSE
 #' @keywords internal
 R_d_multi_GSE <- function(d_vec, PERI, m, l, T, q) {
-    .Call('_LMlib_R_d_multi_GSE', PACKAGE = 'LMlib', d_vec, PERI, m, l, T, q)
+    .Call('_LongMemoryTS_R_d_multi_GSE', PACKAGE = 'LongMemoryTS', d_vec, PERI, m, l, T, q)
 }
 
 #' Profiled Likelihood for GSE under Cointegration
 #' @keywords internal
 R_d_multi_GSE_coint <- function(theta_vec, PERI, m, l, T, q, elements) {
-    .Call('_LMlib_R_d_multi_GSE_coint', PACKAGE = 'LMlib', theta_vec, PERI, m, l, T, q, elements)
+    .Call('_LongMemoryTS_R_d_multi_GSE_coint', PACKAGE = 'LongMemoryTS', theta_vec, PERI, m, l, T, q, elements)
 }
 
 #' @title Helper function for MLWS test for multivariate spurious long memory.
@@ -79,7 +79,7 @@ R_d_multi_GSE_coint <- function(theta_vec, PERI, m, l, T, q, elements) {
 #'              Against Spurious Long Memory. Hannover Economic Paper.
 #' @export
 W_multi <- function(X, d_vec, m, epsilon, eta) {
-    .Call('_LMlib_W_multi', PACKAGE = 'LMlib', X, d_vec, m, epsilon, eta)
+    .Call('_LongMemoryTS_W_multi', PACKAGE = 'LongMemoryTS', X, d_vec, m, epsilon, eta)
 }
 
 #' @title Helper function that returns AR-representation of FI(d)-process.
@@ -89,38 +89,38 @@ W_multi <- function(X, d_vec, m, epsilon, eta) {
 #' @param d memory parameter 
 #' @export
 ddiffw <- function(n, d) {
-    .Call('_LMlib_ddiffw', PACKAGE = 'LMlib', n, d)
+    .Call('_LongMemoryTS_ddiffw', PACKAGE = 'LongMemoryTS', n, d)
 }
 
 #' calculate residuals
 #' @inheritParams ll.VARFIMA
 #' @keywords internal
 ll_inner <- function(data, pre_sample, T, d_vec, phi, THETA, q, approx) {
-    .Call('_LMlib_ll_inner', PACKAGE = 'LMlib', data, pre_sample, T, d_vec, phi, THETA, q, approx)
+    .Call('_LongMemoryTS_ll_inner', PACKAGE = 'LongMemoryTS', data, pre_sample, T, d_vec, phi, THETA, q, approx)
 }
 
 #' some comment
 #' @keywords internal
 cumsumcpp <- function(input) {
-    .Call('_LMlib_cumsumcpp', PACKAGE = 'LMlib', input)
+    .Call('_LongMemoryTS_cumsumcpp', PACKAGE = 'LongMemoryTS', input)
 }
 
 #' some comment
 #' @keywords internal
 repcx <- function(num, q) {
-    .Call('_LMlib_repcx', PACKAGE = 'LMlib', num, q)
+    .Call('_LongMemoryTS_repcx', PACKAGE = 'LongMemoryTS', num, q)
 }
 
 #' some comment
 #' @keywords internal
 simone <- function(G, eta, epsilon, T) {
-    .Call('_LMlib_simone', PACKAGE = 'LMlib', G, eta, epsilon, T)
+    .Call('_LongMemoryTS_simone', PACKAGE = 'LongMemoryTS', G, eta, epsilon, T)
 }
 
 #' some comment
 #' @title simulate limit distribution of test statistic
 #' @keywords internal
 simMLWS <- function(G, eta, epsilon, T, M) {
-    .Call('_LMlib_simMLWS', PACKAGE = 'LMlib', G, eta, epsilon, T, M)
+    .Call('_LongMemoryTS_simMLWS', PACKAGE = 'LongMemoryTS', G, eta, epsilon, T, M)
 }
 

@@ -5,11 +5,11 @@
 ####################################
 
 #' @title Fast fractional differencing procedure of Jensen and Nielsen (2014).
-#' @description Takes the $d$th difference of the series.
-#' @details
-#' add details here
+#' @description Takes the d-th difference of the series.
+# #' @details add details here
 #' @param x series to be differenced
 #' @param d memory parameter indicating order of the fractional difference.
+#' @author Jensen, A. N. and Nielsen, M. O.
 #' @examples acf(fdiff(x=rnorm(500), d=0.4))
 #' @references Jensen, A. N. and Nielsen, M. O. (2014):
 #' A fast fractional difference algorithm, Journal of Time Series Analysis 35(5), pp. 428-436.

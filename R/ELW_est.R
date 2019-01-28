@@ -48,6 +48,7 @@ R.elw.weighted<-function(d,data,m){
 #' @param mean.est specifies the form of mean correction. One of \code{c("mean","init","weighted","none")}.
 #' @references Shimotsu, K. and Phillips, P. C. B. (2005): Exact Local Whittle
 #' Estimation Of Fractional Integration. The Annals of Statistics, Vol. 33, No. 4, pp. 1890 - 1933
+#' @author Christian Leschinski
 #' @examples
 #' library(fracdiff)
 #' T<-1000
@@ -85,6 +86,7 @@ ELW<-function(data,m, mean.est=c("mean","init","weighted","none")){
 #' @param trend_order specifies the form of detrending: 0 for a constant, only, 
 #' 1 for a linear trend, and so on. 
 #' @param taper string from \code{c("Velasco","HC")} specifying the tapered form of the local Whittle estimator used in the first step.
+#' @author Christian Leschinski
 #' @references Shimotsu, K. (2010): Exact Local Whittle
 #' Estimation Of Fractional Integration with Unknown Mean and Time Trend. Econometric Theory,
 #'  Vol. 26, pp. 501 - 540.
