@@ -13,13 +13,13 @@
 #' Brownian motion or bridge should be returned. Default is \code{FALSE} so that the function
 #' returns a fractional Brownian motion.
 #' @references Marinucci, D., Robinson, P. M. (1999). Alternative forms of fractional Brownian motion. 
-#' Journal of statistical planning and inference, 80(1-2), 111-122.
+#' Journal of statistical planning and inference, 80(1-2), 111 - 122.
 #' 
 #' Davidson, J., Hashimzade, N. (2009). Type I and type II fractional Brownian motions: A reconsideration. 
 #' Computational statistics & data analysis, 53(6), 2089-2106. 
 #' 
 #' Bardet, J.-M. et al. (2003): Generators of long-range dependent processes: a survey. 
-#' Theory and applications of long-range dependence, pp. 579 - 623, Birkhäuser Boston.
+#' Theory and applications of long-range dependence, pp. 579 - 623, Birkhauser Boston.
 #' 
 #' @author Kai Wenger
 #' @examples

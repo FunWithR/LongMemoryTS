@@ -24,7 +24,7 @@
 #' d.vec=c(0.4,0.3), T=1000, Sigma=matrix(c(1,0.4,0.4,1),2,2))
 #' ts.plot(series, col=1:2)
 #' acf(series, lag=100)
-#' VARFIMA.est(series, approx=100, rep=TRUE)
+#' VARFIMA.est(series, approx=100, rep=FALSE)
 #' @export
 
 VARFIMA.est<-function(data,approx=100,split=1, rep=FALSE){
