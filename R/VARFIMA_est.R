@@ -3,10 +3,6 @@
 ##         Estimate VARFIMA
 ####################################################
 
-#library(longmemo)
-#library(fracdiff)
-#library(Matrix)
-
 
 ####
 #' @title Maximum likelihood estimation of a VARFIMA(1,1) in final equations form.

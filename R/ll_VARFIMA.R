@@ -2,7 +2,7 @@
 
 #' @title Log-likelihood function of a VARFIMA(1,1) in final equations form.
 #' @description \code{ll.VARFIMA} returns the value of the log-likelihood function for a given sample and parameter vector.
-#' @details add details here.
+# #' @details add details here.
 #' @param theta parameter vector.
 #' @param data data matrix with T observations of q-dimensional process.
 #' @param q dimension of the process.
