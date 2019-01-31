@@ -33,4 +33,3 @@ VARFIMA.est(series, approx=100, rep=TRUE)
 \references{
 Lutkepohl, H. (2007): New introduction to multiple time series analysis. Springer.
 }
-

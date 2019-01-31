@@ -10,4 +10,3 @@ Lambda_j(q, n, T, d_vec)
 Calculate matrix Lambda_j(d) as part of the spectral density
 }
 \keyword{internal}
-

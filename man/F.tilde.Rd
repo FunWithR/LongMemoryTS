@@ -10,4 +10,3 @@ F.tilde(a, b, da, db, k, l)
 helper function
 }
 \keyword{internal}
-

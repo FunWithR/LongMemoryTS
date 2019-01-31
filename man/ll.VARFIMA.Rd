@@ -4,8 +4,8 @@
 \alias{ll.VARFIMA}
 \title{Log-likelihood function of a VARFIMA(1,1) in final equations form.}
 \usage{
-ll.VARFIMA(theta, data, q, approx = 100, pre.sample = matrix(0, approx, q),
-  rep = FALSE)
+ll.VARFIMA(theta, data, q, approx = 100, pre.sample = matrix(0, approx,
+  q), rep = FALSE)
 }
 \arguments{
 \item{theta}{parameter vector.}
@@ -29,4 +29,3 @@ add details here.
 \references{
 Lutkepohl, H. (2007): New introduction to multiple time series analysis. Springer.
 }
-

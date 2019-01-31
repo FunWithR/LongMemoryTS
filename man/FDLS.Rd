@@ -53,4 +53,3 @@ Christensen, B. J. and Nielsen, M. O. (2006): Asymptotic normality
             domain analysis of fractional cointegration. In: Robinson, P. M. (Ed.),
             Time Series with Long Memory, Oxford University Press, Oxford, pp. 334-373.
 }
-

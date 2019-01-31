@@ -26,4 +26,3 @@ add details here.
 Sibbertsen, P., Leschinski, C. H., Holzhausen, M., (2015): A Multivariate Test 
              Against Spurious Long Memory. Hannover Economic Paper.
 }
-

@@ -17,4 +17,3 @@ ll_inner(data, pre_sample, T, d_vec, phi, THETA, q, approx)
 calculate residuals
 }
 \keyword{internal}
-

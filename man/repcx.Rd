@@ -10,4 +10,3 @@ repcx(num, q)
 some comment
 }
 \keyword{internal}
-

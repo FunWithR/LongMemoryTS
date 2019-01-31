@@ -36,4 +36,3 @@ acf(series, lag=100)
 \references{
 Lutkepohl, H. (2007): New introduction to multiple time series analysis. Springer.
 }
-

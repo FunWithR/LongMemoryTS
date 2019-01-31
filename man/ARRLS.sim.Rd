@@ -4,8 +4,8 @@
 \alias{ARRLS.sim}
 \title{Simulation of Autoregressive Random Level Shift processes.}
 \usage{
-ARRLS.sim(T, phi, sig.shifts, prob, sig.noise = 0, const = 0, trend = 0,
-  burnin = 100)
+ARRLS.sim(T, phi, sig.shifts, prob, sig.noise = 0, const = 0,
+  trend = 0, burnin = 100)
 }
 \arguments{
 \item{T}{length of the desired series.}
@@ -16,7 +16,7 @@ is a non stationary RLS.}
 
 \item{sig.shifts}{standard deviation of the shifts.}
 
-\item{prob}{shift probability. Usually p*/T, where p* is the expected number of shifts in the sample.}
+\item{prob}{shift probability. For rare shifts p*/T, where p* is the expected number of shifts in the sample.}
 
 \item{sig.noise}{standard deviation of the noise component. Default is \code{sig.noise=0}.}
 
@@ -24,11 +24,10 @@ is a non stationary RLS.}
 
 \item{trend}{trend of the process. Default is \code{trend=0}.}
 
-\item{burnin}{length of the burnin period used. Default is \code{burnin=100}}
+\item{burnin}{length of the burnin period used. Default is \code{burnin=100}.}
 }
 \description{
-Simulation of a AR-RLS process as discussed in 
-             Leschinski and Kruse (2014) and Xu and Perron (2014).
+Simulation of a AR-RLS process as discussed in and Xu and Perron (2014).
 }
 \details{
 add details here
@@ -37,11 +36,10 @@ add details here
 ts.plot(ARRLS.sim(T=500,phi=0.5, sig.shift=1, prob=0.05), ylab=expression(X[t]))
 }
 \references{
-Leschinski, C. H. and Kruse, R. (2014): Testing for unit roots in random level 
-             shift processes. Mimeo.
-             
-             Xu, J. and Perron, P. (2014): Forecasting return volatility: Level shifts with 
+Xu, J. and Perron, P. (2014): Forecasting return volatility: Level shifts with 
              varying jump probability and mean reversion. International Journal of Forecasting,
              30, pp. 449-463.
 }
-
+\author{
+Christian Leschinski
+}

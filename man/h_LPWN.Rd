@@ -10,4 +10,3 @@ h_LPWN(d, theta, lambda, R_short, R_noise)
 Augmented spectral density function used in LPWN estimator.
 }
 \keyword{internal}
-

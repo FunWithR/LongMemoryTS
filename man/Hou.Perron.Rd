@@ -36,4 +36,6 @@ Hou, J., Perron, P. (2014): Modified local Whittle estimator for long memory pro
 in the presence of low frequency (and other) contaminations. Journal of Econometrics,  Vol. 182,
 No. 2, pp. 309 - 328.
 }
-
+\author{
+Christian Hendrik Leschinski
+}

@@ -10,4 +10,3 @@ R.lw.tapered(d, peri, m, p, T)
 Concentrated local Whittle likelihood for tapered estimate. Only for internal use. Cf. Velasco (1999).
 }
 \keyword{internal}
-

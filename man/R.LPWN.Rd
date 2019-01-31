@@ -10,4 +10,3 @@ R.LPWN(param.vec, data, m, R_short = R_short, R_noise = R_noise)
 Objective function of LPWN estimator.
 }
 \keyword{internal}
-

@@ -33,7 +33,8 @@ arma::cx_cube Peri(arma::mat X){
     arma::cx_mat weights(T,n);
     for(int i=0; i<T; i++){
       for(int j=0; j<n; j++){
-        arma::cx_double help=1i*(i+1)*lambdaj(j);
+        /* arma::cx_double help=1i*(i+1)*lambdaj(j); */
+        std::complex<double> help(0, (i+1)*lambdaj(j));
         weights(i,j)=std::exp(help);
       }}
     arma::cx_mat w=1/std::sqrt(2*M_PI*T)*Xt*weights;      
@@ -50,12 +51,14 @@ arma::cx_cube Peri(arma::mat X){
 //' @keywords internal
 // [[Rcpp::export]]
 arma::cx_cube Lambda_j(int q, int n, int T, arma::vec d_vec){
+  
   arma::vec lambdaj=2*M_PI/T*arma::linspace(1,n,n);
-  arma::cx_cube Lambda(q,q,n, arma::fill::zeros);
-  arma::cx_double phase;  
+  arma::cx_cube Lambda(q,q,n, arma::fill::zeros); 
+  /* arma::cx_double phase;  */
   for(int j=0; j<n; j++){
-    for(int a=0; a<q; a++){
-        phase=1i*(M_PI-lambdaj(j))*d_vec(a)/2;
+    for(int a=0; a<q; a++){ 
+      /* phase=1i*(M_PI-lambdaj(j))*d_vec(a)/2; */
+        std::complex<double> phase(0, (M_PI-lambdaj(j))*d_vec(a)/2);
         Lambda.slice(j)(a,a)=pow(lambdaj(j),-d_vec(a))*exp(phase);      
     }
   }
@@ -98,33 +101,24 @@ arma::cx_mat invert(arma::cx_mat X){
 //' fractionally integrated processes. Journal of Econometrics, Vol. 137, No. 2, pp. 277 - 310.
 //' @keywords internal
 // [[Rcpp::export]]
-arma::mat G_hat_cpp(arma::cx_cube peri, arma::cx_cube Lambda_cube, arma::vec d_vec, int m, int q){
+arma::mat G_hat_cpp(arma::cx_cube peri, arma::cx_cube Lambda_cube, arma::vec d_vec, int m, int l, int q){
   arma::mat aux=arma::zeros(q,q);
-  arma::cx_cube A(q,q,m);
-  arma::cx_cube B(q,q,m);
-  for(int j=0; j<m; j++){
+  for(int j=(l-1); j<m; j++){
    aux+=arma::real(invert(Lambda_cube.slice(j))*peri.slice(j)*invert(Lambda_cube.slice(j).t()));
   }
-  return aux/m;
+  return aux/(m-l);
 } 
 
 
 //' Profiled Likelihood for GSE
 //' @keywords internal
 // [[Rcpp::export]]
-double R_d_multi_GSE(arma::vec d_vec, arma::mat X, int m){
-  int ncols=X.n_cols;
-  int nrows=X.n_rows;
-  int q=std::min(ncols,nrows);
-  int T=std::max(ncols,nrows);
+double R_d_multi_GSE(arma::vec d_vec, arma::cx_cube PERI, int m, int l, int T, int q){
   int n=floor(T/2);
-  arma::mat Xt(q,T);
-  if(q==ncols){Xt=X.t();}else{Xt=X;}
   arma::vec lambdaj=2*M_PI/T*arma::linspace(1,n,n);
   arma::cx_cube L=Lambda_j(q,n,T,d_vec);
-  arma::cx_cube PERI=Peri(Xt);
-  double G=log(arma::det(G_hat_cpp(PERI, L, d_vec, m, q)));
-  double minus=2*arma::sum(d_vec)*arma::sum(log(lambdaj(arma::span(0,m-1))))/m;
+  double G=log(arma::det(G_hat_cpp(PERI, L, d_vec, m, l, q)));
+  double minus=2*arma::sum(d_vec)*arma::sum(log(lambdaj(arma::span((l-1),m-1))))/(m-l);
   double erg=G-minus;
   return erg;
 }
@@ -134,16 +128,17 @@ double R_d_multi_GSE(arma::vec d_vec, arma::mat X, int m){
 //' Profiled Likelihood for GSE under Cointegration
 //' @keywords internal
 // [[Rcpp::export]]
-double R_d_multi_GSE_coint(arma::vec theta_vec, arma::mat X, int m, arma::vec elements){
-  int ncols=X.n_cols;
-  int nrows=X.n_rows;
-  int q=std::min(ncols,nrows);
-  int T=std::max(ncols,nrows);
+double R_d_multi_GSE_coint(arma::vec theta_vec, arma::cx_cube PERI, int m, int l, int T, int q, arma::vec elements){
+  //int ncols=X.n_cols;
+  //int nrows=X.n_rows;
+  //int q=std::min(ncols,nrows);
+  //int T=std::max(ncols,nrows);
   int n=floor(T/2);
   int ncoint=elements.n_elem-1;
   arma::vec d_vec=theta_vec.subvec((ncoint),(ncoint+q-1));
-  arma::mat Xt(q,T);
-  if(q==ncols){Xt=X.t();}else{Xt=X;}
+  //d_vec.print();
+  //arma::mat Xt(q,T);
+  //if(q==ncols){Xt=X.t();}else{Xt=X;}
   arma::mat B(q,q, arma::fill::eye);
   //theta_vec.print();
   //d_vec.print();
@@ -157,12 +152,12 @@ double R_d_multi_GSE_coint(arma::vec theta_vec, arma::mat X, int m, arma::vec el
   //}
   arma::vec lambdaj=2*M_PI/T*arma::linspace(1,n,n);
   arma::cx_cube L=Lambda_j(q,n,T,d_vec);
-  arma::cx_cube PERI=Peri(Xt);
+  arma::cx_cube PERI2=PERI;
   for (int j=0; j<n; j++){
-    PERI.slice(j)=B*PERI.slice(j)*B.t();
+    PERI2.slice(j)=B*PERI.slice(j)*B.t();
   }
-  double G=log(arma::det(G_hat_cpp(PERI, L, d_vec, m, q)));
-  double minus=2*arma::sum(d_vec)*arma::sum(log(lambdaj(arma::span(0,m-1))))/m;
+  double G=log(arma::det(G_hat_cpp(PERI2, L, d_vec, m, l, q)));
+  double minus=2*arma::sum(d_vec)*arma::sum(log(lambdaj(arma::span((l-1),m-1))))/(m-l);
   double erg=G-minus;
   return erg;
 }
@@ -194,11 +189,12 @@ double W_multi(arma::mat X, arma::vec d_vec, int m, double epsilon, arma::vec et
   int q=std::min(ncols,nrows);
   int T=std::max(ncols,nrows);
   int n=floor(T/2);
+  int l=1;
   arma::mat Xt(q,T);
   if(q==ncols){Xt=X.t();}else{Xt=X;}
   arma::cx_cube L=Lambda_j(q,n,T,d_vec);
   arma::cx_cube PERI=Peri(Xt);
-  arma::mat Ginv=G_hat_cpp(PERI, L, d_vec, m, q).i();
+  arma::mat Ginv=G_hat_cpp(PERI, L, d_vec, m, l, q).i();
   arma::vec lambdaj=2*M_PI/T*arma::linspace(1,n,n);
   arma::vec nuj=log(lambdaj(arma::span(0,m-1)))-arma::mean(log(lambdaj(arma::span(0,m-1))));
   arma::cube ia(q,q,q,arma::fill::zeros);
@@ -283,8 +279,6 @@ arma::mat ll_inner(arma::mat data, arma::mat pre_sample, int T, arma::vec d_vec,
 
   PHID.slice(0)*=(-1);
   A.slice(0)*=(-1);
-
-  A.print("A:");
 
   arma::cube PI_mat(q,q,approx, arma::fill::zeros);
 

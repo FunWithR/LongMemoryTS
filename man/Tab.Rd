@@ -12,4 +12,3 @@ Test for equality of two elements d_a and d_b of estimated d vector.
 This function should not be called directly. It is called as a helper by T.rho.
 }
 \keyword{internal}
-

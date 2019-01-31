@@ -4,10 +4,9 @@
 \alias{R_d_multi_GSE}
 \title{Profiled Likelihood for GSE}
 \usage{
-R_d_multi_GSE(d_vec, X, m)
+R_d_multi_GSE(d_vec, PERI, m, l, T, q)
 }
 \description{
 Profiled Likelihood for GSE
 }
 \keyword{internal}
-

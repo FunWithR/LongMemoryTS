@@ -10,4 +10,3 @@ cumsumcpp(input)
 some comment
 }
 \keyword{internal}
-

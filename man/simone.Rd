@@ -10,4 +10,3 @@ simone(G, eta, epsilon, T)
 some comment
 }
 \keyword{internal}
-

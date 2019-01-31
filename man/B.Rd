@@ -10,4 +10,3 @@ B(d, m, T, R_short, R_noise)
 B matrix in asymptotic distribution.
 }
 \keyword{internal}
-

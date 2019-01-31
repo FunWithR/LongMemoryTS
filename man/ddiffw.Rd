@@ -15,4 +15,3 @@ ddiffw(n, d)
 returns the first \code{n} coefficients in the AR-infinity representation
 of an FI(d) process
 }
-

@@ -13,16 +13,13 @@ ELW(data, m, mean.est = c("mean", "init", "weighted", "none"))
 \item{m}{bandwith parameter specifying the number of Fourier frequencies.
 used for the estimation usually \code{floor(1+T^delta)}, where 0<delta<1.}
 
-\item{mean.est}{specifies the form of mean correction. See details.}
+\item{mean.est}{specifies the form of mean correction. One of \code{c("mean","init","weighted","none")}.}
 }
 \description{
 \code{ELW} implements the exact local Whittle estimator of 
 Shimotsu and Phillips (2005) that is consistent and asymptotically normal as long as 
 the optimization range is less than 9/2, so that it is possible to estimate the memory
 of stationary as well as non-stationary processes.
-}
-\details{
-add details here
 }
 \examples{
 library(fracdiff)
@@ -36,4 +33,6 @@ ELW(series, m=floor(1+T^0.7))$d
 Shimotsu, K. and Phillips, P. C. B. (2005): Exact Local Whittle
 Estimation Of Fractional Integration. The Annals of Statistics, Vol. 33, No. 4, pp. 1890 - 1933
 }
-
+\author{
+Christian Leschinski
+}

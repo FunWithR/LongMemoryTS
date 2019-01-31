@@ -4,10 +4,9 @@
 \alias{R.lw}
 \title{Concentrated local Whittle likelihood. Only for internal use. cf. Robinson (1995), p. 1633.}
 \usage{
-R.lw(d, peri, m, T)
+R.lw(d, peri, m, T, l = 1)
 }
 \description{
 Concentrated local Whittle likelihood. Only for internal use. cf. Robinson (1995), p. 1633.
 }
 \keyword{internal}
-

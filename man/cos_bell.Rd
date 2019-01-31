@@ -10,4 +10,3 @@ cos_bell(u)
 Cosine Bell Taper
 }
 \keyword{internal}
-

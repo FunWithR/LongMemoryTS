@@ -10,4 +10,3 @@ wd.elw(d)
 Concentrated local Whittle likelihood. Only for internal use. cf. Shimotsu and Phillips (2005), p. ???.
 }
 \keyword{internal}
-

@@ -12,10 +12,7 @@ fdiff(x, d)
 \item{d}{memory parameter indicating order of the fractional difference.}
 }
 \description{
-Takes the $d$th difference of the series.
-}
-\details{
-add details here
+Takes the d-th difference of the series.
 }
 \examples{
 acf(fdiff(x=rnorm(500), d=0.4))
@@ -24,4 +21,6 @@ acf(fdiff(x=rnorm(500), d=0.4))
 Jensen, A. N. and Nielsen, M. O. (2014):
 A fast fractional difference algorithm, Journal of Time Series Analysis 35(5), pp. 428-436.
 }
-
+\author{
+Jensen, A. N. and Nielsen, M. O.
+}

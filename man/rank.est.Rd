@@ -28,6 +28,7 @@ Model selection procedure to estimate the cointegrating rank
 add details here.
 }
 \examples{
+library(fracdiff)
 T<-2000
 d<-0.4
 m1<-floor(1+T^0.75)
@@ -48,4 +49,3 @@ Robinson, P. M. and Yajima, Y. (2002): Determination of cointegrating rank
            nonstationary fractional systems by the exact local Whittle approach. Journal of Econometrics,
            141, pp. 574-596.
 }
-

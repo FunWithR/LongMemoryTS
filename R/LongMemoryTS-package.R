@@ -15,22 +15,27 @@
 #' \code{\link{MLWS}}, \code{\link{McC.Perron}}, \code{\link{Peri}}, 
 #' \code{\link{Qu.test}}, \code{\link{T.rho}}, \code{\link{T0stat}}, 
 #' \code{\link{VARFIMA.est}}, \code{\link{VARFIMA.sim}}, \code{\link{W_multi}},
-#' \code{\link{cross.Peri}}, \code{\link{ddiffw}}, \code{\link{fdiff}}, 
+#' \code{\link{cross.Peri}}, \code{\link{ddiffw}}, \code{\link{fBM}}, \code{\link{fdiff}}, 
 #' \code{\link{gph}}, \code{\link{ll.VARFIMA}}, \code{\link{local.W}},
 #' \code{\link{partition.X}}, \code{\link{pre.White}}, \code{\link{rank.est}}
 #' 
-#' @author Christian Hendrik Leschinski <christian_leschinski@gmx.de>
-#' @contributors Michelle Voges
-#' @name LMlib
+#' @author Christian Hendrik Leschinski <christian_leschinski@gmx.de>, Michelle Voges, Kai Wenger
+#' @name LongMemoryTS
 #' @references Bai, J. and Perron, P. (1998): Estimating and Testing Linear Models With Multiple Structural Changes. Econometrica, Vol. 66, No. 1, pp. 47 - 78.
 #'
 #' Bai, J. and Perron, P. (2003): Computation and Analysis of Multiple Structural Change Models. Journal of Applied Econometrics, Vol. 18, pp. 1-22.
+#'
+#' Bardet, J.-M. et al. (2003): Generators of long-range dependent processes: a survey. 
+#' Theory and applications of long-range dependence, pp. 579 - 623, Birkhäuser Boston.
 #' 
 #' Chen, W. W. and Hurvich, C. M. (2003): Semiparametric estimation of multivariate fractional cointegration. Journal of the American Statistical Association, Vol. 98, No. 463, pp. 629 - 642.
 #' 
 #' Chen, W. W. and Hurvich, C. M. (2006): Semiparametric estimation of fractional cointegrating subspaces. The Annals of Statistics, Vol. 34, No. 6, pp. 2939 - 2979.
 #' 
 #' Christensen, B. J. and Nielsen, M. O. (2006): Asymptotic normality of narrow-band least squares in the stationary fractional cointegration model and volatility forecasting. Journal of Econometrics, 133, pp. 343-371.
+#'
+#' Davidson, J., Hashimzade, N. (2009). Type I and type II fractional Brownian motions: A reconsideration. 
+#' Computational Statistics & Data Analysis, No. 53, Vol. 6, pp. 2089 - 2106. 
 #'
 #' Frederiksen, P., Nielsen, F. S., and Nielsen, M. O. (2012): Local polynomial Whittle estimation of perturbed fractional processes. Journal of Econometrics, Vol. 167, No.2, pp. 426-447.
 #'
@@ -47,6 +52,9 @@
 #' Lavielle, M. and Moulines, E. (2000): Least Squares Estimation of an Unknown Number of Shifts in a Time Series. Journal of Time Series Analysis, Vol. 21, No. 1, pp. 33 - 59. 
 #' 
 #' Lutkepohl, H. (2007): New introduction to multiple time series analysis. Springer.
+#' 
+#' Marinucci, D., Robinson, P. M. (1999). Alternative forms of fractional Brownian motion. 
+#' Journal of Statistical Planning and Inference, Vol. 80 No. 1-2, pp. 111 - 122.
 #' 
 #' Marmol, F. and Velasco, C. (2004): Consistent testing of cointegrating relationships. Econometrica, Vol. 72, No. 6, pp. 1809 - 1844.
 #' 

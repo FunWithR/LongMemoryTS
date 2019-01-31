@@ -10,4 +10,3 @@ Slm(m, l)
 Correction factor for small sample standard errors
 }
 \keyword{internal}
-

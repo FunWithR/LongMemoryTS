@@ -36,6 +36,7 @@ non-rejection with any h_n>0.}
 add details here.
 }
 \examples{
+library(fracdiff)
 T<-1000
 d1<-0.2
 d2<-0.4
@@ -56,4 +57,3 @@ Robinson, P. M. and Yajima, Y. (2002): Determination of cointegrating rank
            nonstationary fractional systems by the exact local Whittle approach. Journal of Econometrics,
            141, pp. 574-596.
 }
-

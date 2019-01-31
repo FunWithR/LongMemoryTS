@@ -4,7 +4,7 @@
 \alias{G_hat_cpp}
 \title{Estimation of G matrix for multivariate long memory processes.}
 \usage{
-G_hat_cpp(peri, Lambda_cube, d_vec, m, q)
+G_hat_cpp(peri, Lambda_cube, d_vec, m, l, q)
 }
 \arguments{
 \item{peri}{cube containing the periodogram of the multivariate process X.}
@@ -31,4 +31,3 @@ Shimotsu, K. (2007): Gaussian semiparametric estimation of multivariate
 fractionally integrated processes. Journal of Econometrics, Vol. 137, No. 2, pp. 277 - 310.
 }
 \keyword{internal}
-

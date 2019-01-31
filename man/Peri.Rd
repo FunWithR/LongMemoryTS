@@ -25,4 +25,3 @@ plot(Re(peri[i,j,]), type="h")
 lines(Im(peri[i,j,]), col=2)
 }}
 }
-

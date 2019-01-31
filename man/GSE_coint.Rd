@@ -4,21 +4,20 @@
 \alias{GSE_coint}
 \title{Multivariate local Whittle estimation of long memory parameters and cointegrating vector.}
 \usage{
-GSE_coint(X, m = m, elements)
+GSE_coint(X, m = m, elements, l = 1)
 }
 \arguments{
 \item{X}{data matrix with T observations of q-dimensional process.}
 
-\item{m}{bandwith parameter specifying the number of Fourier frequencies.
-used for the estimation usually \code{floor(1+T^delta)}, where 0<delta<1.}
+\item{m}{bandwith parameter specifying the number of Fourier frequencies used for the estimation. Usually \code{floor(1+T^delta)}, where 0<delta<1.}
 
 \item{elements}{vector specifying which elements of the observation vector are cointegrated.}
+
+\item{l}{integer that specifies the number of Fourier frequencies (l-1) that are trimmed.}
 }
 \description{
-\code{GSE_coint} Estimates thesomething...
-}
-\details{
-add details here.
+\code{GSE_coint} is an extended version of \code{GSE} that allows the joint 
+estimation of the memory parameters and the cointegration vector for a vector valued process.
 }
 \examples{
 #
@@ -30,4 +29,3 @@ series<-FI.sim(T=T,q=2,rho=0,d=c(0.1,0.4), B=rbind(c(1,-1),c(0,1)))
 ts.plot(series, col=1:2)
 GSE_coint(X=series,m=m, elements=c(1,2))
 }
-

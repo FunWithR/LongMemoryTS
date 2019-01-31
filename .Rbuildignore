@@ -3,3 +3,4 @@
 \.fsrc$
 \.o$
 \.so$
+.travis.yml

@@ -8,7 +8,7 @@ using namespace Rcpp;
 
 // Peri
 arma::cx_cube Peri(arma::mat X);
-RcppExport SEXP LMlib_Peri(SEXP XSEXP) {
+RcppExport SEXP _LongMemoryTS_Peri(SEXP XSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -19,7 +19,7 @@ END_RCPP
 }
 // Lambda_j
 arma::cx_cube Lambda_j(int q, int n, int T, arma::vec d_vec);
-RcppExport SEXP LMlib_Lambda_j(SEXP qSEXP, SEXP nSEXP, SEXP TSEXP, SEXP d_vecSEXP) {
+RcppExport SEXP _LongMemoryTS_Lambda_j(SEXP qSEXP, SEXP nSEXP, SEXP TSEXP, SEXP d_vecSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -33,7 +33,7 @@ END_RCPP
 }
 // invert
 arma::cx_mat invert(arma::cx_mat X);
-RcppExport SEXP LMlib_invert(SEXP XSEXP) {
+RcppExport SEXP _LongMemoryTS_invert(SEXP XSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -43,8 +43,8 @@ BEGIN_RCPP
 END_RCPP
 }
 // G_hat_cpp
-arma::mat G_hat_cpp(arma::cx_cube peri, arma::cx_cube Lambda_cube, arma::vec d_vec, int m, int q);
-RcppExport SEXP LMlib_G_hat_cpp(SEXP periSEXP, SEXP Lambda_cubeSEXP, SEXP d_vecSEXP, SEXP mSEXP, SEXP qSEXP) {
+arma::mat G_hat_cpp(arma::cx_cube peri, arma::cx_cube Lambda_cube, arma::vec d_vec, int m, int l, int q);
+RcppExport SEXP _LongMemoryTS_G_hat_cpp(SEXP periSEXP, SEXP Lambda_cubeSEXP, SEXP d_vecSEXP, SEXP mSEXP, SEXP lSEXP, SEXP qSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -52,41 +52,48 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< arma::cx_cube >::type Lambda_cube(Lambda_cubeSEXP);
     Rcpp::traits::input_parameter< arma::vec >::type d_vec(d_vecSEXP);
     Rcpp::traits::input_parameter< int >::type m(mSEXP);
+    Rcpp::traits::input_parameter< int >::type l(lSEXP);
     Rcpp::traits::input_parameter< int >::type q(qSEXP);
-    rcpp_result_gen = Rcpp::wrap(G_hat_cpp(peri, Lambda_cube, d_vec, m, q));
+    rcpp_result_gen = Rcpp::wrap(G_hat_cpp(peri, Lambda_cube, d_vec, m, l, q));
     return rcpp_result_gen;
 END_RCPP
 }
 // R_d_multi_GSE
-double R_d_multi_GSE(arma::vec d_vec, arma::mat X, int m);
-RcppExport SEXP LMlib_R_d_multi_GSE(SEXP d_vecSEXP, SEXP XSEXP, SEXP mSEXP) {
+double R_d_multi_GSE(arma::vec d_vec, arma::cx_cube PERI, int m, int l, int T, int q);
+RcppExport SEXP _LongMemoryTS_R_d_multi_GSE(SEXP d_vecSEXP, SEXP PERISEXP, SEXP mSEXP, SEXP lSEXP, SEXP TSEXP, SEXP qSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< arma::vec >::type d_vec(d_vecSEXP);
-    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
+    Rcpp::traits::input_parameter< arma::cx_cube >::type PERI(PERISEXP);
     Rcpp::traits::input_parameter< int >::type m(mSEXP);
-    rcpp_result_gen = Rcpp::wrap(R_d_multi_GSE(d_vec, X, m));
+    Rcpp::traits::input_parameter< int >::type l(lSEXP);
+    Rcpp::traits::input_parameter< int >::type T(TSEXP);
+    Rcpp::traits::input_parameter< int >::type q(qSEXP);
+    rcpp_result_gen = Rcpp::wrap(R_d_multi_GSE(d_vec, PERI, m, l, T, q));
     return rcpp_result_gen;
 END_RCPP
 }
 // R_d_multi_GSE_coint
-double R_d_multi_GSE_coint(arma::vec theta_vec, arma::mat X, int m, arma::vec elements);
-RcppExport SEXP LMlib_R_d_multi_GSE_coint(SEXP theta_vecSEXP, SEXP XSEXP, SEXP mSEXP, SEXP elementsSEXP) {
+double R_d_multi_GSE_coint(arma::vec theta_vec, arma::cx_cube PERI, int m, int l, int T, int q, arma::vec elements);
+RcppExport SEXP _LongMemoryTS_R_d_multi_GSE_coint(SEXP theta_vecSEXP, SEXP PERISEXP, SEXP mSEXP, SEXP lSEXP, SEXP TSEXP, SEXP qSEXP, SEXP elementsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< arma::vec >::type theta_vec(theta_vecSEXP);
-    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
+    Rcpp::traits::input_parameter< arma::cx_cube >::type PERI(PERISEXP);
     Rcpp::traits::input_parameter< int >::type m(mSEXP);
+    Rcpp::traits::input_parameter< int >::type l(lSEXP);
+    Rcpp::traits::input_parameter< int >::type T(TSEXP);
+    Rcpp::traits::input_parameter< int >::type q(qSEXP);
     Rcpp::traits::input_parameter< arma::vec >::type elements(elementsSEXP);
-    rcpp_result_gen = Rcpp::wrap(R_d_multi_GSE_coint(theta_vec, X, m, elements));
+    rcpp_result_gen = Rcpp::wrap(R_d_multi_GSE_coint(theta_vec, PERI, m, l, T, q, elements));
     return rcpp_result_gen;
 END_RCPP
 }
 // W_multi
 double W_multi(arma::mat X, arma::vec d_vec, int m, double epsilon, arma::vec eta);
-RcppExport SEXP LMlib_W_multi(SEXP XSEXP, SEXP d_vecSEXP, SEXP mSEXP, SEXP epsilonSEXP, SEXP etaSEXP) {
+RcppExport SEXP _LongMemoryTS_W_multi(SEXP XSEXP, SEXP d_vecSEXP, SEXP mSEXP, SEXP epsilonSEXP, SEXP etaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -101,7 +108,7 @@ END_RCPP
 }
 // ddiffw
 arma::vec ddiffw(int n, double d);
-RcppExport SEXP LMlib_ddiffw(SEXP nSEXP, SEXP dSEXP) {
+RcppExport SEXP _LongMemoryTS_ddiffw(SEXP nSEXP, SEXP dSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -113,7 +120,7 @@ END_RCPP
 }
 // ll_inner
 arma::mat ll_inner(arma::mat data, arma::mat pre_sample, int T, arma::vec d_vec, double phi, arma::mat THETA, int q, int approx);
-RcppExport SEXP LMlib_ll_inner(SEXP dataSEXP, SEXP pre_sampleSEXP, SEXP TSEXP, SEXP d_vecSEXP, SEXP phiSEXP, SEXP THETASEXP, SEXP qSEXP, SEXP approxSEXP) {
+RcppExport SEXP _LongMemoryTS_ll_inner(SEXP dataSEXP, SEXP pre_sampleSEXP, SEXP TSEXP, SEXP d_vecSEXP, SEXP phiSEXP, SEXP THETASEXP, SEXP qSEXP, SEXP approxSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -131,7 +138,7 @@ END_RCPP
 }
 // cumsumcpp
 arma::cx_vec cumsumcpp(arma::cx_vec input);
-RcppExport SEXP LMlib_cumsumcpp(SEXP inputSEXP) {
+RcppExport SEXP _LongMemoryTS_cumsumcpp(SEXP inputSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -142,7 +149,7 @@ END_RCPP
 }
 // repcx
 arma::cx_vec repcx(arma::cx_double num, int q);
-RcppExport SEXP LMlib_repcx(SEXP numSEXP, SEXP qSEXP) {
+RcppExport SEXP _LongMemoryTS_repcx(SEXP numSEXP, SEXP qSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -154,7 +161,7 @@ END_RCPP
 }
 // simone
 double simone(arma::mat G, arma::vec eta, double epsilon, double T);
-RcppExport SEXP LMlib_simone(SEXP GSEXP, SEXP etaSEXP, SEXP epsilonSEXP, SEXP TSEXP) {
+RcppExport SEXP _LongMemoryTS_simone(SEXP GSEXP, SEXP etaSEXP, SEXP epsilonSEXP, SEXP TSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -168,7 +175,7 @@ END_RCPP
 }
 // simMLWS
 arma::vec simMLWS(arma::mat G, arma::vec eta, double epsilon, int T, int M);
-RcppExport SEXP LMlib_simMLWS(SEXP GSEXP, SEXP etaSEXP, SEXP epsilonSEXP, SEXP TSEXP, SEXP MSEXP) {
+RcppExport SEXP _LongMemoryTS_simMLWS(SEXP GSEXP, SEXP etaSEXP, SEXP epsilonSEXP, SEXP TSEXP, SEXP MSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -180,4 +187,26 @@ BEGIN_RCPP
     rcpp_result_gen = Rcpp::wrap(simMLWS(G, eta, epsilon, T, M));
     return rcpp_result_gen;
 END_RCPP
+}
+
+static const R_CallMethodDef CallEntries[] = {
+    {"_LongMemoryTS_Peri", (DL_FUNC) &_LongMemoryTS_Peri, 1},
+    {"_LongMemoryTS_Lambda_j", (DL_FUNC) &_LongMemoryTS_Lambda_j, 4},
+    {"_LongMemoryTS_invert", (DL_FUNC) &_LongMemoryTS_invert, 1},
+    {"_LongMemoryTS_G_hat_cpp", (DL_FUNC) &_LongMemoryTS_G_hat_cpp, 6},
+    {"_LongMemoryTS_R_d_multi_GSE", (DL_FUNC) &_LongMemoryTS_R_d_multi_GSE, 6},
+    {"_LongMemoryTS_R_d_multi_GSE_coint", (DL_FUNC) &_LongMemoryTS_R_d_multi_GSE_coint, 7},
+    {"_LongMemoryTS_W_multi", (DL_FUNC) &_LongMemoryTS_W_multi, 5},
+    {"_LongMemoryTS_ddiffw", (DL_FUNC) &_LongMemoryTS_ddiffw, 2},
+    {"_LongMemoryTS_ll_inner", (DL_FUNC) &_LongMemoryTS_ll_inner, 8},
+    {"_LongMemoryTS_cumsumcpp", (DL_FUNC) &_LongMemoryTS_cumsumcpp, 1},
+    {"_LongMemoryTS_repcx", (DL_FUNC) &_LongMemoryTS_repcx, 2},
+    {"_LongMemoryTS_simone", (DL_FUNC) &_LongMemoryTS_simone, 4},
+    {"_LongMemoryTS_simMLWS", (DL_FUNC) &_LongMemoryTS_simMLWS, 5},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_LongMemoryTS(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }

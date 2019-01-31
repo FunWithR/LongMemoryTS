@@ -45,4 +45,3 @@ The Annals of Statistics, Vol. 23, No. 5, pp. 1048 - 1072.
 McCloskey, A. and Perron, P. (2013): Memory parameter estimation in the presence of 
 level shifts and deterministic trends. Econometric Theory, 29, pp. 1196-1237.
 }
-

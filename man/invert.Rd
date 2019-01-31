@@ -10,4 +10,3 @@ invert(X)
 Armadillo has trouble inverting complex matrices. This is circumvented by this function.
 }
 \keyword{internal}
-

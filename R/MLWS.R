@@ -3,14 +3,13 @@
 #' @description Multivariate local Whittle Score type test for the null hypothesis of true long
 #'              memory against the alternative of spurious long memory suggested by Sibbertsen, 
 #'              Leschinski and Holzhausen (2018).
-#' @details
-#' add details here
+# #' @details add details here
 #' @param X data matrix
 #' @param m bandwith parameter specifying the number of Fourier frequencies used 
 #' for the estimation usually \code{floor(1+T^delta)}, where 0.5<delta<0.8 for consistency.
 #' @param epsilon trimming parameter \code{epsilon=0.05} by default. Determines
 #' minimum number of Fourier frequencies used in test statistic. For T>500 it is recommended 
-#' to use \code{epsilon=0.02}. Confer Sibbertsen, Leschinski, Holzhausen (2015) for further details.
+#' to use \code{epsilon=0.02}. Confer Sibbertsen, Leschinski, Holzhausen (2018) for further details.
 #' @param coint.elements Vector specifying which elements in the vector series are in a cointegrating relationship. By default \code{NULL}. Cf details.
 #' @param B cointegrating matrix, if known. Default is \code{B=NULL}.
 #' @param prewhite specifies the form of pre-whitening applied. One of \code{c("none","uni","multi")}. 
@@ -28,6 +27,7 @@
 #' Only relevant for component-wise version of the test. Default is \code{T_limdist=1000}.
 #' @param M_limdist number of replications for simulation of the limit distribution.
 #' Default is \code{M_limdist=5000}.
+#' @import fracdiff
 #' @examples 
 #' T<-500
 #' m<-floor(1+T^0.75)

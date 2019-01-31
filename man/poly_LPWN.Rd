@@ -10,4 +10,3 @@ poly_LPWN(lambda, theta_p)
 Polynomial function used for approximation of short memory terms and noise dynamics.
 }
 \keyword{internal}
-

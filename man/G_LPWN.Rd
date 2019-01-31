@@ -4,10 +4,10 @@
 \alias{G_LPWN}
 \title{Estimator of G using polynomial approximation.}
 \usage{
-G_LPWN(data, d, m, lambda_j, h_pol, R_short = R_short, R_noise = R_noise)
+G_LPWN(data, d, m, lambda_j, h_pol, R_short = R_short,
+  R_noise = R_noise)
 }
 \description{
 Estimator of G using polynomial approximation.
 }
 \keyword{internal}
-

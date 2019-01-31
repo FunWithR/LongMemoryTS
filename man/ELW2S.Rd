@@ -5,7 +5,7 @@
 \title{Two-Step Exact local Whittle estimator of fractional integration with 
 unknown mean and time trend.}
 \usage{
-ELW2S(data, m, trend_order = 0, taper = c("HC", "Velasco"))
+ELW2S(data, m, trend_order = 0, taper = c("Velasco", "HC"))
 }
 \arguments{
 \item{data}{data vector of length T.}
@@ -14,14 +14,13 @@ ELW2S(data, m, trend_order = 0, taper = c("HC", "Velasco"))
 used for the estimation usually \code{floor(1+T^delta)}, where 0<delta<1.}
 
 \item{trend_order}{specifies the form of detrending: 0 for a constant, only, 
-1 for a linear trend, and so on. See details.}
+1 for a linear trend, and so on.}
+
+\item{taper}{string from \code{c("Velasco","HC")} specifying the tapered form of the local Whittle estimator used in the first step.}
 }
 \description{
 \code{ELW2S} implements the two-step ELW estimator of 
 Shimotsu (2010) that is consistent and asymptotically normal in the range from -1/2 to 2.
-}
-\details{
-add details here
 }
 \examples{
 library(fracdiff)
@@ -41,4 +40,6 @@ Shimotsu, K. (2010): Exact Local Whittle
 Estimation Of Fractional Integration with Unknown Mean and Time Trend. Econometric Theory,
  Vol. 26, pp. 501 - 540.
 }
-
+\author{
+Christian Leschinski
+}

@@ -36,4 +36,3 @@ long range dependence. The Annals of Statistics, Vol. 23, No. 5, pp. 1048 - 1072
 Geweke, J. and Porter-Hudak, S. (1983): The estimation and application 
 of long memory time series models. Journal of Time Series Analysis, 4, 221-238.
 }
-

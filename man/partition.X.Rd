@@ -54,4 +54,3 @@ Robinson, P. M. (1995): Gaussian semiparametric estimation of long rang
 \seealso{
 \link{partitions}, \link{T.rho}, \link{T0stat}
 }
-

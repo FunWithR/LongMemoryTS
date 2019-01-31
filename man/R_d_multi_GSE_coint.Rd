@@ -4,10 +4,9 @@
 \alias{R_d_multi_GSE_coint}
 \title{Profiled Likelihood for GSE under Cointegration}
 \usage{
-R_d_multi_GSE_coint(theta_vec, X, m, elements)
+R_d_multi_GSE_coint(theta_vec, PERI, m, l, T, q, elements)
 }
 \description{
 Profiled Likelihood for GSE under Cointegration
 }
 \keyword{internal}
-

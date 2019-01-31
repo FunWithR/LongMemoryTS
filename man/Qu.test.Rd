@@ -20,10 +20,8 @@ to use \code{epsilon=0.02}.Confer Qu (2011) for further details.}
 \code{Qu.test} Test statistic of Qu (2011) for the null hypotesis of true long memory 
 against the alternative of spurious long memory.
 }
-\details{
-add details here
-}
 \examples{
+library(fracdiff)
 T<-500
 m<-floor(1+T^0.75)
 series<-fracdiff.sim(n=T,d=0.4)$series
@@ -37,4 +35,3 @@ Qu.test(shift.series,m=m, epsilon=0.05)
 Qu, Z. (2011): A Test Against Spurious Long Memory. Journal of Business and 
 Economic Statistics, Vol. 29, No. 3, pp. 423 - 438.
 }
-

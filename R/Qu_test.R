@@ -15,8 +15,7 @@
 #' @description
 #' \code{Qu.test} Test statistic of Qu (2011) for the null hypotesis of true long memory 
 #' against the alternative of spurious long memory.
-#' @details
-#' add details here
+# #' @details add details here
 #' @param data data vector of length T.
 #' @param m bandwith parameter specifying the number of Fourier frequencies used 
 #' for the estimation usually \code{floor(1+T^delta)}, where 0.5<delta<0.8 for consistency.
@@ -24,6 +23,7 @@
 #' minimum number of Fourier frequencies used in test statistic. For T>500 it is recommended 
 #' to use \code{epsilon=0.02}.Confer Qu (2011) for further details.
 #' @examples
+#' library(fracdiff)
 #' T<-500
 #' m<-floor(1+T^0.75)
 #' series<-fracdiff.sim(n=T,d=0.4)$series

@@ -57,4 +57,3 @@ Nielsen and Frederiksen (2011): Fully modified narrow-band least
 \seealso{
 \code{\link{FDLS}}, \code{\link{local.W}}, \code{\link{Hou.Perron}}, \code{\link{ELW}}
 }
-

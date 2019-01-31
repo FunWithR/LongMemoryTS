@@ -10,4 +10,3 @@ J.M(vec, peri, m, T)
 Modified concentrated local Whittle likelihood. Only for internal use. cf. Hou and Perron (2014), p. 312.
 }
 \keyword{internal}
-

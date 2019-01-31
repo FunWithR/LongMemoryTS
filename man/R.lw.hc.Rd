@@ -12,4 +12,3 @@ Concentrated local Whittle likelihood of differenced and tapered estimator of
 Hurvich and Chen (2000). Only for internal use.
 }
 \keyword{internal}
-

@@ -19,9 +19,6 @@ used for the estimation usually \code{floor(1+T^delta)}, where 0<delta<1.}
              based on an estimate of the vector of memory parameters. The assumed spectral 
              density is that of Shimotsu (2007).
 }
-\details{
-add details here.
-}
 \examples{
 T<-500
 d1<-0.4
@@ -34,4 +31,3 @@ G.hat(X=data, d=c(d1,d2), m=floor(1+T^0.6))
 Shimotsu, K. (2007): Gaussian semiparametric estimation of multivariate
 fractionally integrated processes. Journal of Econometrics, Vol. 137, No. 2, pp. 277 - 310.
 }
-

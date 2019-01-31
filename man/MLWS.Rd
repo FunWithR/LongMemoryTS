@@ -6,8 +6,8 @@
 \usage{
 MLWS(X, m, epsilon = c(0.02, 0.05), coint.elements = NULL, B = NULL,
   prewhite = c("none", "uni", "multi"), eta = rep(1/sqrt(min(dim(X))),
-  min(dim(X))), rep = FALSE, approx = 100, split = 1, T_limdist = 1000,
-  M_limdist = 5000)
+  min(dim(X))), rep = FALSE, approx = 100, split = 1,
+  T_limdist = 1000, M_limdist = 5000)
 }
 \arguments{
 \item{X}{data matrix}
@@ -17,7 +17,7 @@ for the estimation usually \code{floor(1+T^delta)}, where 0.5<delta<0.8 for cons
 
 \item{epsilon}{trimming parameter \code{epsilon=0.05} by default. Determines
 minimum number of Fourier frequencies used in test statistic. For T>500 it is recommended 
-to use \code{epsilon=0.02}. Confer Sibbertsen, Leschinski, Holzhausen (2015) for further details.}
+to use \code{epsilon=0.02}. Confer Sibbertsen, Leschinski, Holzhausen (2018) for further details.}
 
 \item{coint.elements}{Vector specifying which elements in the vector series are in a cointegrating relationship. By default \code{NULL}. Cf details.}
 
@@ -48,10 +48,7 @@ Default is \code{M_limdist=5000}.}
 \description{
 Multivariate local Whittle Score type test for the null hypothesis of true long
              memory against the alternative of spurious long memory suggested by Sibbertsen, 
-             Leschinski and Holzhausen (2015).
-}
-\details{
-add details here
+             Leschinski and Holzhausen (2018).
 }
 \examples{
 T<-500
@@ -72,7 +69,6 @@ MLWS(series, m=m)
 MLWS(series, m=m, coint.elements=c(1,2))
 }
 \references{
-Sibbertsen, P., Leschinski, C. H., Holzhausen, M., (2015): A Multivariate Test 
-             Against Spurious Long Memory. Hannover Economic Paper.
+Sibbertsen, P., Leschinski, C. H., Holzhausen, M., (2018): A Multivariate Test 
+             Against Spurious Long Memory. Journal of Econometrics, Vol. 203, No. 1, pp. 33 - 49.
 }
-

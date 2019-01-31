@@ -4,19 +4,17 @@
 \alias{GSE}
 \title{Multivariate local Whittle estimation of long memory parameters.}
 \usage{
-GSE(X, m = m)
+GSE(X, m = m, l = 1)
 }
 \arguments{
 \item{X}{data matrix with T observations of q-dimensional process.}
 
-\item{m}{bandwith parameter specifying the number of Fourier frequencies.
-used for the estimation usually \code{floor(1+T^delta)}, where 0<delta<1.}
+\item{m}{bandwith parameter specifying the number of Fourier frequencies used for the estimation. Usually \code{floor(1+T^delta)}, where 0<delta<1.}
+
+\item{l}{integer that specifies the number of Fourier frequencies (l-1) that are trimmed.}
 }
 \description{
-\code{GSE} Estimates the matrix G based on an estimate of the vector of memory parameters.
-}
-\details{
-add details here.
+\code{GSE} Estimates the memory parameter of a vector valued long memory process.
 }
 \examples{
 T<-500
@@ -30,4 +28,3 @@ GSE(data, m=floor(1+T^0.7))
 Shimotsu, K. (2007): Gaussian semiparametric estimation of multivariate
 fractionally integrated processes. Journal of Econometrics, Vol. 137, No. 2, pp. 277 - 310.
 }
-

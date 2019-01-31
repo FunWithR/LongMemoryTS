@@ -10,4 +10,3 @@ LAMBDA_m(d.vec, m, T)
 helper function
 }
 \keyword{internal}
-

@@ -10,4 +10,3 @@ PHI_lw(ht, T, p)
 Scaling factor in the asymptotic variance. Only for internal use. Cf. Velasco (1999).
 }
 \keyword{internal}
-

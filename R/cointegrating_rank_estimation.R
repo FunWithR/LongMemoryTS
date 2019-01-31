@@ -55,6 +55,7 @@ return(Tab)
 #'            nonstationary fractional systems by the exact local Whittle approach. Journal of Econometrics,
 #'            141, pp. 574-596.
 #' @examples
+#' library(fracdiff)
 #' T<-1000
 #' d1<-0.2
 #' d2<-0.4
@@ -124,6 +125,7 @@ return(out)
 #'            nonstationary fractional systems by the exact local Whittle approach. Journal of Econometrics,
 #'            141, pp. 574-596.
 #' @examples
+#' library(fracdiff)
 #' T<-1000
 #' d1<-0.2
 #' d2<-0.4
@@ -186,6 +188,7 @@ T0stat<-function(data, d.hat,m, m1, alpha=0.05, s_bar=1, h_n=1/sqrt(log(max(dim(
 #'            nonstationary fractional systems by the exact local Whittle approach. Journal of Econometrics,
 #'            141, pp. 574-596.
 #' @examples
+#' library(fracdiff)
 #' T<-2000
 #' d<-0.4
 #' m1<-floor(1+T^0.75)

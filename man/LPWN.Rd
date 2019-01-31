@@ -22,6 +22,7 @@ LPWN(data, m, R_short = 0, R_noise = 0)
 add details here.
 }
 \examples{
+library(fracdiff)
 T<-2000
 d<-0.2
 series<-fracdiff.sim(n=T, d=d, ar=0.6)$series+rnorm(T)
@@ -32,4 +33,3 @@ Frederiksen, P., Nielsen, F. S., and Nielsen, M. O. (2012):
            Local polynomial Whittle estimation of perturbed fractional processes.
            Journal of Econometrics, Vol. 167, No.2, pp. 426-447.
 }
-

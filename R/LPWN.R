@@ -91,6 +91,7 @@ B<-function(d,m,T,R_short,R_noise){
 #'            Local polynomial Whittle estimation of perturbed fractional processes.
 #'            Journal of Econometrics, Vol. 167, No.2, pp. 426-447.
 #' @examples
+#' library(fracdiff)
 #' T<-2000
 #' d<-0.2
 #' series<-fracdiff.sim(n=T, d=d, ar=0.6)$series+rnorm(T)

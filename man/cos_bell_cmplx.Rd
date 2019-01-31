@@ -10,4 +10,3 @@ cos_bell_cmplx(u)
 Complex Cosine Bell Taper
 }
 \keyword{internal}
-

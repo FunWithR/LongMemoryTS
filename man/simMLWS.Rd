@@ -10,4 +10,3 @@ simMLWS(G, eta, epsilon, T, M)
 some comment
 }
 \keyword{internal}
-
