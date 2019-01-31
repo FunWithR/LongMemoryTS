@@ -16,7 +16,7 @@ Bai, J. and Perron, P. (1998): Estimating and Testing Linear Models With Multipl
 Bai, J. and Perron, P. (2003): Computation and Analysis of Multiple Structural Change Models. Journal of Applied Econometrics, Vol. 18, pp. 1-22.
 
 Bardet, J.-M. et al. (2003): Generators of long-range dependent processes: a survey. 
-Theory and applications of long-range dependence, pp. 579 - 623, Birkhäuser Boston.
+Theory and applications of long-range dependence, pp. 579 - 623, Birkhauser Boston.
 
 Chen, W. W. and Hurvich, C. M. (2003): Semiparametric estimation of multivariate fractional cointegration. Journal of the American Statistical Association, Vol. 98, No. 463, pp. 629 - 642.
 

@@ -23,9 +23,6 @@ ll.VARFIMA(theta, data, q, approx = 100, pre.sample = matrix(0, approx,
 \description{
 \code{ll.VARFIMA} returns the value of the log-likelihood function for a given sample and parameter vector.
 }
-\details{
-add details here.
-}
 \references{
 Lutkepohl, H. (2007): New introduction to multiple time series analysis. Springer.
 }

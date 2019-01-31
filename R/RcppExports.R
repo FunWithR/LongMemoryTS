@@ -35,7 +35,6 @@ invert <- function(X) {
 #' @description \code{G.hat} Estimates the matrix G of a multivariate long memory process 
 #'              based on an estimate of the vector of memory parameters. The assumed spectral 
 #'              density is that of Shimotsu (2007).
-#' @details add details here.
 #' @param peri cube containing the periodogram of the multivariate process X.
 #' @param Lambda_cube  cube containing the Lambda matrices.
 #' @param d_vec q-dimensional data vector.
