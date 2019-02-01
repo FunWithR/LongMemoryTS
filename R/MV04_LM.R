@@ -181,7 +181,7 @@ cross_Peri<-function(X,Y,m){
 #' Econometrica, Vol. 72, No. 6, pp. 1809 - 1844.
 #' @author Christian Leschinski, Michelle Voges
 #' @examples
-#' T<-1000
+#' T<-500
 #' series<-FI.sim(T=T, q=2, rho=0.1, d=c(0.6,1), B=rbind(c(1,-1),c(0,1)))
 #' FCI_MV04(series, type="const", N=floor(T^(0.75)), m=floor(T^(2/3)))
 #' series<-FI.sim(T=T, q=2, rho=0.1, d=c(0.8,0.8))

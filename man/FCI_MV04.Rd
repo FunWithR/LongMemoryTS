@@ -24,7 +24,7 @@ used for the memory parameter estimation, usually \code{floor(1+T^delta)}, where
  Returns test statistic, critical value and testing decision. Null hypothesis: no fractional cointegration.
 }
 \examples{
-T<-1000
+T<-500
 series<-FI.sim(T=T, q=2, rho=0.1, d=c(0.6,1), B=rbind(c(1,-1),c(0,1)))
 FCI_MV04(series, type="const", N=floor(T^(0.75)), m=floor(T^(2/3)))
 series<-FI.sim(T=T, q=2, rho=0.1, d=c(0.8,0.8))
