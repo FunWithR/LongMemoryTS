@@ -6,7 +6,8 @@
 
 #' @title Fast fractional differencing procedure of Jensen and Nielsen (2014).
 #' @description Takes the d-th difference of the series.
-# #' @details add details here
+#' @details This code was first published on the \href{http://www.econ.queensu.ca/faculty/mon/software/}{university webpage of Morten Nielsen} and is 
+#' redistributed here with the author's permission.
 #' @param x series to be differenced
 #' @param d memory parameter indicating order of the fractional difference.
 #' @author Jensen, A. N. and Nielsen, M. O.

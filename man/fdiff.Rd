@@ -14,6 +14,10 @@ fdiff(x, d)
 \description{
 Takes the d-th difference of the series.
 }
+\details{
+This code was first published on the \href{http://www.econ.queensu.ca/faculty/mon/software/}{university webpage of Morten Nielsen} and is 
+redistributed here with the author's permission.
+}
 \examples{
 acf(fdiff(x=rnorm(500), d=0.4))
 }
